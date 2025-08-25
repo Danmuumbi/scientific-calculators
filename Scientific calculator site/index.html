@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciTech Supplies - Quality Scientific Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #4a6491;
+            --accent: #ff7e30;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --danger: #e74c3c;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-number {
+            display: flex;
+            align-items: center;
+            background: var(--accent);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+        
+        .contact-number:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-number i {
+            margin-right: 8px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 auto 30px;
+            max-width: 700px;
+        }
+        
+        .offer-badge {
+            background: var(--danger);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: #e76a20;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--danger);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.4s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        
+        .product-price {
+            color: var(--danger);
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin: 15px 0;
+        }
+        
+        .product-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 100px 0;
+            background: #f5f7fa;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover .category-icon {
+            transform: scale(1.2);
+        }
+        
+        .category-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .category-card p {
+            color: #7f8c8d;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Payment Section */
+        .payment {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            flex: 1;
+            min-width: 280px;
+            max-width: 380px;
+        }
+        
+        .payment-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .payment-details {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        
+        /* Delivery Section */
+        .delivery {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .delivery-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .delivery-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .delivery-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '\201C';
+            font-size: 5rem;
+            color: #f1f1f1;
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-family: Arial;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .contact-method:hover .contact-icon {
+            transform: scale(1.1);
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .contact-form {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 50px;
+            border-top: 1px solid #3e546e;
+            color: #ecf0f1;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .contact-number {
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .offer-badge {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+                SciTech Supplies
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#delivery">Delivery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-number">
+                <i class="fas fa-phone"></i>
+                0701179812
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="offer-badge">SPECIAL OFFERS - LIMITED TIME!</div>
+                <h1>Quality Scientific Tools & Equipment</h1>
+                <p>Get the best scientific calculators, engineering tools, and safety equipment at unbeatable prices. Perfect for students, engineers, and professionals.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn">Explore Products</a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image">
+                        <img src="SCIENTIFIC CALCULATOR FX 991 ES PLUS.jpg" alt="Scientific Calculator FX 991 ES PLUS">
+                    </div>
+                    <div class="product-info">
+                        <h3>SCIENTIFIC CALCULATOR FX 991 ES PLUS</h3>
+                        <div class="product-price">KSh 2,400</div>
+                        <p class="product-description">Advanced scientific calculator with 552 functions and natural textbook display. Perfect for engineering students.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="CALCULATOR FX 82 MS.png" alt="Calculator FX 82 MS">
+                    </div>
+                    <div class="product-info">
+                        <h3>CALCULATOR FX 82 MS</h3>
+                        <div class="product-price">KSh 1,200</div>
+                        <p class="product-description">Standard scientific calculator with 240 functions, perfect for high school and college students.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="SMP TABLE.jpg" alt="SMP TABLE">
+                    </div>
+                    <div class="product-info">
+                        <h3>SMP TABLE</h3>
+                        <div class="product-price">KSh 700</div>
+                        <p class="product-description">Durable drafting table for technical drawing and engineering designs. Adjustable angle for comfort.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="T-SQUARE.png" alt="T-SQUARE">
+                    </div>
+                    <div class="product-info">
+                        <h3>T-SQUARE</h3>
+                        <div class="product-price">KSh 650</div>
+                        <p class="product-description">Precision T-square for accurate technical drawing. Made from high-quality transparent plastic.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="SET-SQUARE.jpg" alt="SET-SQUARE">
+                    </div>
+                    <div class="product-info">
+                        <h3>SET-SQUARE</h3>
+                        <div class="product-price">KSh 550</div>
+                        <p class="product-description">High-quality set square for geometry and technical drawing. 45° and 60° angles available.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ENGINEERING SET.png" alt="ENGINEERING SET">
+                    </div>
+                    <div class="product-info">
+                        <h3>ENGINEERING SET</h3>
+                        <div class="product-price">KSh 1,000</div>
+                        <p class="product-description">Complete engineering drawing set with compass, divider, rulers, and protractor in a durable case.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="SAFETY BOOTS.png" alt="SAFETY BOOTS">
+                    </div>
+                    <div class="product-info">
+                        <h3>SAFETY BOOTS</h3>
+                        <div class="product-price">KSh 2,500</div>
+                        <p class="product-description">Industrial-grade safety boots with steel toe cap for maximum protection in laboratories and workshops.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="LAB COATS.png" alt="LAB COATS">
+                    </div>
+                    <div class="product-info">
+                        <h3>LAB COATS</h3>
+                        <div class="product-price">KSh 850</div>
+                        <p class="product-description">Professional lab coats for scientists and researchers. Available in multiple sizes.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="OVERALL.png" alt="OVERALL">
+                    </div>
+                    <div class="product-info">
+                        <h3>OVERALL</h3>
+                        <div class="product-price">KSh 1,000</div>
+                        <p class="product-description">Durable overalls for industrial and laboratory use. Made from high-quality, resistant material.</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Product Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='#products'">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calculators</h3>
+                    <p>Scientific calculators for students and professionals</p>
+                </div>
+                
+                <div class="category-card" onclick="location.href='#products'">
+                    <div class="category-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Drawing Tools</h3>
+                    <p>Precision tools for technical drawing and design</p>
+                </div>
+                
+                <div class="category-card" onclick="location.href='#products'">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Engineering Sets</h3>
+                    <p>Complete sets for engineering students</p>
+                </div>
+                
+                <div class="category-card" onclick="location.href='#products'">
+                    <div class="category-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Safety Equipment</h3>
+                    <p>Protective gear for laboratories and industries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Product Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallery1.jpg" alt="Calculators">
+                    <div class="gallery-overlay">
+                        <h3>Calculators</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallary3.png" alt="Drawing Instruments">
+                    <div class="gallery-overlay">
+                        <h3>Drawing Instruments</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallery1.jpg" alt="Drafting Tables">
+                    <div class="gallery-overlay">
+                        <h3>Drafting Tables</h3>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallary5.png" alt="Drafting Tables">
+                    <div class="gallery-overlay">
+                        <h3>Drafting Tables</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallery6.png" alt="Drafting Tables">
+                    <div class="gallery-overlay">
+                        <h3>Drafting Tables</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="location.href='#products'">
+                    <img src="gallary4.png" alt="Safety Equipment">
+                    <div class="gallery-overlay">
+                        <h3>Safety Equipment</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <h2 class="section-title">Payment Methods</h2>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>M-Pesa</h3>
+                    <p>Pay quickly and securely via M-Pesa</p>
+                    <div class="payment-details">
+                        Paybill: 542542<br>
+                        Account: 389911
+                    </div>
+                    <p>After payment, send the confirmation message to 0701179812</p>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Cash Payment</h3>
+                    <p>Pay with cash on delivery or pickup</p>
+                    <div class="payment-details">
+                        Available for delivery within MMU and Ongata Rongai
+                    </div>
+                    <p>Contact us to arrange cash payment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Section -->
+    <section class="delivery" id="delivery">
+        <div class="container">
+            <h2 class="section-title">Delivery Information</h2>
+            <div class="delivery-info">
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Delivery Areas</h3>
+                    <p>We offer FREE delivery within MMU and Ongata Rongai areas for orders above KSh 1,000.</p>
+                </div>
+                
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Other Areas</h3>
+                    <p>For other locations, delivery charges apply based on distance. Contact us for details.</p>
+                </div>
+                
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Pickup Option</h3>
+                    <p>You can also pickup your order from our store. Contact us for address and working hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The FX 991 ES PLUS calculator is amazing! It has all the functions I need for my engineering courses. Delivery was quick and the price was better than anywhere else."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div>
+                            <h4>Daniel Muumbi</h4>
+                            <p>Computer Science Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I purchased the complete engineering set for my son who is joining university. The quality is excellent and the price was very reasonable. Will definitely shop here again."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div>
+                            <h4>Samuel Kilonzo</h4>
+                            <p>Parent</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The safety boots I bought are very comfortable and durable. Perfect for my laboratory work. The customer service was also very helpful in guiding me to choose the right size."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DA</div>
+                        <div>
+                            <h4>David Auma</h4>
+                            <p>Lab Technician</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about our products? Reach out to us through any of these methods:</p>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>0701179812</p>
+                            <p>0740034891</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>0701179812</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@scitechsupplies.co.ke</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                            <p>Sunday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Your Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product">Product of Interest</label>
+                            <select id="product" required>
+                                <option value="">Select a product</option>
+                                <option value="FX 991 ES PLUS">SCIENTIFIC CALCULATOR FX 991 ES PLUS</option>
+                                <option value="FX 82 MS">CALCULATOR FX 82 MS</option>
+                                <option value="SMP TABLE">SMP TABLE</option>
+                                <option value="T-SQUARE">T-SQUARE</option>
+                                <option value="SET-SQUARE">SET-SQUARE</option>
+                                <option value="ENGINEERING SET">ENGINEERING SET</option>
+                                <option value="SAFETY BOOTS">SAFETY BOOTS</option>
+                                <option value="LAB COATS">LAB COATS</option>
+                                <option value="OVERALL">OVERALL</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>SciTech Supplies</h3>
+                    <p>Your trusted partner for quality scientific tools, engineering equipment, and safety gear. We offer competitive prices and excellent customer service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#payment">Payment Methods</a></li>
+                        <li><a href="#delivery">Delivery Information</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> 0701179812</p>
+                    <p><i class="fas fa-phone"></i> 0740034891</p>
+                    <p><i class="fab fa-whatsapp"></i> 0701179812</p>
+                    <p><i class="fas fa-envelope"></i> info@scitechsupplies.co.ke</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Payment & Delivery</h3>
+                    <p><i class="fas fa-money-bill"></i> M-Pesa Paybill: 542542</p>
+                    <p><i class="fas fa-money-bill"></i> Account: 389911</p>
+                    <p><i class="fas fa-truck"></i> Free delivery within MMU and Ongata Rongai</p>
+                    <p><i class="fas fa-store"></i> Pickup available at our store</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SciTech Supplies. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            
+            // Show confirmation message
+            alert(`Thank you ${name}! Your inquiry about ${product} has been received. We will contact you at ${email} shortly.`);
+            
+            // Reset form
+            document.getElementById('inquiryForm').reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.product-card, .category-card, .gallery-item, .payment-method, .delivery-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize elements for animation
+        document.querySelectorAll('.product-card, .category-card, .gallery-item, .payment-method, .delivery-card, .testimonial-card').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
