@@ -45,7 +45,7 @@
         }
         
         /* Header Styles */
-        header {
+        /* header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 15px 0;
@@ -128,7 +128,7 @@
         .contact-number i {
             margin-right: 8px;
         }
-        
+         */
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
@@ -722,7 +722,7 @@
                 text-align: center;
             }
             
-            nav ul {
+            /* nav ul {
                 margin-top: 20px;
                 justify-content: center;
                 flex-wrap: wrap;
@@ -731,7 +731,7 @@
             nav ul li {
                 margin: 0 10px 10px;
             }
-            
+             */
             .contact-number {
                 margin-top: 20px;
             }
@@ -768,14 +768,14 @@
         }
         
         @media (max-width: 576px) {
-            nav ul {
+            /* nav ul {
                 flex-direction: column;
                 align-items: center;
             }
             
             nav ul li {
                 margin: 8px 0;
-            }
+            } */
             
             .hero h1 {
                 font-size: 2rem;
@@ -794,7 +794,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <!-- <header>
         <div class="container header-container">
             <div class="logo">
                 <i class="fas fa-flask"></i>
@@ -814,7 +814,199 @@
                 0701179812 / 0789915856
             </div>
         </div>
-    </header>
+    </header> -->
+
+
+    <!-- Header -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="logo.jpg" alt="SciTech Supplies">
+            SciTech Supplies
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav id="nav">
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#delivery">Delivery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="contact-number">
+            <i class="fas fa-phone"></i>
+            0701179812 / 0789915856
+        </div>
+    </div>
+</header>
+
+<style>
+    /* Header Styles */
+    header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: 0.3s;
+    }
+    
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+    
+    nav ul li {
+        margin-left: 25px;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        font-size: 1.1rem;
+        position: relative;
+    }
+    
+    nav ul li a:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.3s;
+    }
+    
+    nav ul li a:hover:after {
+        width: 100%;
+    }
+    
+    nav ul li a:hover {
+        color: var(--accent);
+    }
+    
+    .contact-number {
+        display: flex;
+        align-items: center;
+        background: var(--accent);
+        padding: 8px 15px;
+        border-radius: 30px;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+    }
+    
+    .contact-number:hover {
+        transform: scale(1.05);
+    }
+    
+    .contact-number i {
+        margin-right: 8px;
+    }
+    
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+        .hamburger {
+            display: flex;
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        nav.active {
+            max-height: 300px;
+        }
+        
+        nav ul {
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        nav ul li {
+            margin: 10px 0;
+        }
+        
+        .contact-number {
+            display: none;
+        }
+        
+        .contact-number.mobile {
+            display: flex;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .header-container {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<script>
+    // Toggle mobile navigation
+    document.getElementById('hamburger').addEventListener('click', function() {
+        const nav = document.getElementById('nav');
+        nav.classList.toggle('active');
+        
+        // Optional: Add animation to hamburger icon
+        this.classList.toggle('active');
+    });
+</script>
 
     <!-- Hero Section -->
     <section class="hero">
